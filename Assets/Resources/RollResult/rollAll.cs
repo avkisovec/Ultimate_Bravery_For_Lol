@@ -10,6 +10,8 @@ public class rollAll : MonoBehaviour {
 
     List<champ> champsList = new List<champ>();
 
+    List<string> bootsList = new List<string>();
+
     // Use this for initialization
     void Start()
     {
@@ -164,6 +166,14 @@ public class rollAll : MonoBehaviour {
         champsList.Add(new champ("Zoe", true));
         champsList.Add(new champ("Zyra", true));
 
+        bootsList.Add("BerserkersGreaves");
+        bootsList.Add("BootsOfMobility");
+        bootsList.Add("BootsOfSwiftness");
+        bootsList.Add("IonianBootsOfLucidity");
+        bootsList.Add("MercurysThreads");
+        bootsList.Add("NinjaTabi");
+        bootsList.Add("SorcerersShoes");
+
     }
 
     // Update is called once per frame
@@ -212,9 +222,20 @@ public class rollAll : MonoBehaviour {
         champIcon.gameObject.tag = "icon";
 
         champIcon.gameObject.transform.position = GameObject.Find("champBg").gameObject.transform.position;
+        
+        champIcon.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Champions/" + champsList[Random.Range(0, champsList.Count)].name)[0];
 
-        //champIcon.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Champions/Sion")[0];
-        champIcon.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Champions/" + champsList[Random.Range(0, 100)].name)[0];
+
+
+        GameObject itemBootsIcon = new GameObject();
+        itemBootsIcon.AddComponent<SpriteRenderer>();
+
+        itemBootsIcon.gameObject.tag = "icon";
+
+        itemBootsIcon.gameObject.transform.position = GameObject.Find("itemBootsBg").gameObject.transform.position;
+
+        itemBootsIcon.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/Boots/" + bootsList[Random.Range(0, bootsList.Count)])[0];
+
 
     }
 
@@ -255,5 +276,16 @@ public class champ
         this.name = name;
         this.ranged = ranged;
         this.isVictor = isVictor;
+    }
+}
+
+public class item
+{
+    public string name;
+    public string restriction;
+    public item(string name, string restriction = "")
+    {
+        this.name = name;
+        this.restriction = restriction;
     }
 }
