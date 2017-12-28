@@ -382,12 +382,17 @@ public class rollAll : MonoBehaviour {
         moveGameObjectToZMinus1(itemIcon4);
         moveGameObjectToZMinus1(itemIcon5);
 
+        
         itemIcon1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/" + itemsList[item1].name)[0];
         itemIcon2.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/" + itemsList[item2].name)[0];
         itemIcon3.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/" + itemsList[item3].name)[0];
         itemIcon4.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/" + itemsList[item4].name)[0];
         itemIcon5.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/" + itemsList[item5].name)[0];
-        
+
+        if (champsList[champ].isViktor)
+        {
+            itemIcon1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/Special/HexCore")[0]; //Viktor
+        }
 
         moveGameObjectToZMinus1(itemIcon1); //moving to z=-1 again because of the previously stated bug
         moveGameObjectToZMinus1(itemIcon2);
@@ -502,13 +507,13 @@ public class Champ
 {
     public string name;
     public bool ranged;
-    public bool isVictor;
+    public bool isViktor;
 
-    public Champ(string name, bool ranged = false, bool isVictor = false)
+    public Champ(string name, bool ranged = false, bool isViktor = false)
     {
         this.name = name;
         this.ranged = ranged;
-        this.isVictor = isVictor;
+        this.isViktor = isViktor;
     }
 }
 
