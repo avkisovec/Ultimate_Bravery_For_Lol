@@ -393,6 +393,15 @@ public class rollAll : MonoBehaviour {
         {
             itemIcon1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/Special/HexCore")[0]; //Viktor
         }
+        if (champsList[champ].name=="Cassiopeia") //Cassiopeia
+        {
+            int newItem;
+            do
+            {
+                newItem = Random.Range(0, itemsList.Count);
+            } while (newItem == item5 || newItem == item4 || newItem == item3 || newItem == item2 || newItem == item1 || checkRestrictions(champ, newItem, item5, item4, item3, item2, item1) == false);
+            itemBootsIcon.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/" + itemsList[newItem].name)[0];
+        }
 
         moveGameObjectToZMinus1(itemIcon1); //moving to z=-1 again because of the previously stated bug
         moveGameObjectToZMinus1(itemIcon2);
@@ -403,14 +412,8 @@ public class rollAll : MonoBehaviour {
 
     }
 
-    bool checkRestrictions(int champ, int itemNew, int item2 = -1, int item3 = -1, int item4 = -1, int item5 = -1)
+    bool checkRestrictions(int champ, int itemNew, int item2 = -1, int item3 = -1, int item4 = -1, int item5 = -1, int item6 = -1)
     {
-        /*
-        if(itemNew==item1 || itemNew == item2 || itemNew == item3 || itemNew == item4 || itemNew == item5)
-        {
-            return false;
-        }
-        */
 
         if(itemsList[itemNew].restriction == "ranged" && champsList[champ].ranged == false)
         {
@@ -458,6 +461,13 @@ public class rollAll : MonoBehaviour {
             if (item5 != -1)
             {
                 if (itemsList[item5].restriction == "gold")
+                {
+                    goldIncomeItems++;
+                }
+            }
+            if (item6 != -1)
+            {
+                if (itemsList[item6].restriction == "gold")
                 {
                     goldIncomeItems++;
                 }
