@@ -26,6 +26,9 @@ public class rollAll : MonoBehaviour
 
     List<Rune> runesList = new List<Rune>();
 
+
+    Vector3 mouseHoldBegin;
+
     // Use this for initialization
     void Start()
     {
@@ -338,9 +341,17 @@ public class rollAll : MonoBehaviour
     void Update()
     {
 
-        if (Input.GetKeyDown(KeyCode.A) || detectClickBtnRoll())
+        
+        if (Input.GetMouseButtonDown(0))
         {
-            roll();
+            mouseHoldBegin = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (checkBtnClick("btnRoll"))
+            {
+                roll();
+            }
         }
 
     }
@@ -706,7 +717,7 @@ public class rollAll : MonoBehaviour
     {
         go.gameObject.transform.position = new Vector3(go.gameObject.transform.position.x, go.gameObject.transform.position.y, -1);
     }
-
+    /*
     bool detectClickBtnRoll()
     {
         if (Input.GetMouseButtonDown(0))
@@ -715,10 +726,10 @@ public class rollAll : MonoBehaviour
 
             Vector3 clickCoordinates = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 
-            if (clickCoordinates.x > btnRollTransform.position.x - btnRollTransform.lossyScale.x &&
-                clickCoordinates.x < btnRollTransform.position.x + btnRollTransform.lossyScale.x &&
-                clickCoordinates.y > btnRollTransform.position.y - btnRollTransform.lossyScale.y &&
-                clickCoordinates.y < btnRollTransform.position.y + btnRollTransform.lossyScale.y
+            if (clickCoordinates.x > btnRollTransform.position.x - btnRollTransform.lossyScale.x/2 &&
+                clickCoordinates.x < btnRollTransform.position.x + btnRollTransform.lossyScale.x/2 &&
+                clickCoordinates.y > btnRollTransform.position.y - btnRollTransform.lossyScale.y/2 &&
+                clickCoordinates.y < btnRollTransform.position.y + btnRollTransform.lossyScale.y/2
                 )
             {
                 return true;
@@ -728,6 +739,29 @@ public class rollAll : MonoBehaviour
         {
             return false;
         }
+        return false;
+    }*/
+
+    bool checkBtnClick(string button)
+    {
+
+        GameObject btn = GameObject.Find(button);
+        Vector3 clickCoordinates = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+
+        if (clickCoordinates.x > btn.transform.position.x - btn.transform.lossyScale.x / 2 &&
+            clickCoordinates.x < btn.transform.position.x + btn.transform.lossyScale.x / 2 &&
+            clickCoordinates.y > btn.transform.position.y - btn.transform.lossyScale.y / 2 &&
+            clickCoordinates.y < btn.transform.position.y + btn.transform.lossyScale.y / 2 &&
+            clickCoordinates.x > mouseHoldBegin.x - btn.transform.lossyScale.x / 2 &&
+            clickCoordinates.x < mouseHoldBegin.x + btn.transform.lossyScale.x / 2 &&
+            clickCoordinates.y > mouseHoldBegin.y - btn.transform.lossyScale.y / 2 &&
+            clickCoordinates.y < mouseHoldBegin.y + btn.transform.lossyScale.y / 2 &&
+            (clickCoordinates - mouseHoldBegin).magnitude < 0.1f
+            )
+        {
+            return true;
+        }
+
         return false;
     }
 
