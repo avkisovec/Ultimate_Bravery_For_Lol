@@ -29,6 +29,7 @@ public class rollAll : MonoBehaviour
 
     Vector3 mouseHoldBegin;
 
+
     // Use this for initialization
     void Start()
     {
@@ -332,15 +333,14 @@ public class rollAll : MonoBehaviour
         runesList.Add(new Rune("Approach_Velocity_rune", "I", "3", 2));
         runesList.Add(new Rune("Celestial_Body_rune", "I", "3", 3));
 
-
-
-
+        
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        
         
         if (Input.GetMouseButtonDown(0))
         {
@@ -779,6 +779,8 @@ public class rollAll : MonoBehaviour
 
         return false;
     }
+
+    
 
 }
 
