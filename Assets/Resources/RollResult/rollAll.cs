@@ -378,9 +378,9 @@ public class rollAll : MonoBehaviour
         summIcon2.gameObject.tag = "icon";
 
         summIcon1.gameObject.transform.position = GameObject.Find("summ1bg").gameObject.transform.position;
-        summIcon1.gameObject.transform.localScale = GameObject.Find("summ1bg").gameObject.transform.localScale;
+        summIcon1.gameObject.transform.localScale = GameObject.Find("summ1bg").gameObject.transform.localScale * 100 / 64;
         summIcon2.gameObject.transform.position = GameObject.Find("summ2bg").gameObject.transform.position;
-        summIcon2.gameObject.transform.localScale = GameObject.Find("summ2bg").gameObject.transform.localScale;
+        summIcon2.gameObject.transform.localScale = GameObject.Find("summ2bg").gameObject.transform.localScale * 100 / 64;
 
         summIcon1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("summSpells/" + summsNamesList[summ1])[0];
         summIcon2.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("summSpells/" + summsNamesList[summ2])[0];
@@ -393,10 +393,9 @@ public class rollAll : MonoBehaviour
         champIcon.AddComponent<SpriteRenderer>();
         champIcon.gameObject.tag = "icon";
         champIcon.gameObject.transform.position = GameObject.Find("champBg").gameObject.transform.position;
-        champIcon.gameObject.transform.localScale = GameObject.Find("champBg").gameObject.transform.localScale;
+        champIcon.gameObject.transform.localScale = GameObject.Find("champBg").gameObject.transform.localScale * 100 / 120;
         champIcon.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Champions/" + champsList[champ].name)[0];
         moveGameObjectToZMinus1(champIcon);
-
 
         GameObject itemBootsIcon = new GameObject();
         itemBootsIcon.AddComponent<SpriteRenderer>();
@@ -404,7 +403,7 @@ public class rollAll : MonoBehaviour
         itemBootsIcon.gameObject.tag = "icon";
 
         itemBootsIcon.gameObject.transform.position = GameObject.Find("itemBootsBg").gameObject.transform.position;
-        itemBootsIcon.gameObject.transform.localScale = GameObject.Find("itemBootsBg").gameObject.transform.localScale;
+        itemBootsIcon.gameObject.transform.localScale = GameObject.Find("itemBootsBg").gameObject.transform.localScale * 100 / 64;
 
         itemBootsIcon.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/Boots/" + bootsList[Random.Range(0, bootsList.Count)])[0];
         moveGameObjectToZMinus1(itemBootsIcon);
@@ -441,11 +440,12 @@ public class rollAll : MonoBehaviour
         itemIcon3.gameObject.transform.position = GameObject.Find("item3").gameObject.transform.position;
         itemIcon4.gameObject.transform.position = GameObject.Find("item4").gameObject.transform.position;
         itemIcon5.gameObject.transform.position = GameObject.Find("item5").gameObject.transform.position;
-        itemIcon1.gameObject.transform.localScale = GameObject.Find("item1").gameObject.transform.localScale;
-        itemIcon2.gameObject.transform.localScale = GameObject.Find("item2").gameObject.transform.localScale;
-        itemIcon3.gameObject.transform.localScale = GameObject.Find("item3").gameObject.transform.localScale;
-        itemIcon4.gameObject.transform.localScale = GameObject.Find("item4").gameObject.transform.localScale;
-        itemIcon5.gameObject.transform.localScale = GameObject.Find("item5").gameObject.transform.localScale;
+        itemIcon1.gameObject.transform.localScale = GameObject.Find("item1").gameObject.transform.lossyScale * 100 / 64;
+        itemIcon2.gameObject.transform.localScale = GameObject.Find("item2").gameObject.transform.lossyScale * 100 / 64;
+        itemIcon3.gameObject.transform.localScale = GameObject.Find("item3").gameObject.transform.lossyScale * 100 / 64;
+        itemIcon4.gameObject.transform.localScale = GameObject.Find("item4").gameObject.transform.lossyScale * 100 / 64;
+        itemIcon5.gameObject.transform.localScale = GameObject.Find("item5").gameObject.transform.lossyScale * 100 / 64;
+        
 
         do
         {
@@ -590,10 +590,10 @@ public class rollAll : MonoBehaviour
         runePrimary1.gameObject.transform.position = GameObject.Find("runePrimary1").gameObject.transform.position;
         runePrimary2.gameObject.transform.position = GameObject.Find("runePrimary2").gameObject.transform.position;
         runePrimary3.gameObject.transform.position = GameObject.Find("runePrimary3").gameObject.transform.position;
-        runePrimaryKey.gameObject.transform.localScale = GameObject.Find("runeKey").gameObject.transform.localScale;
-        runePrimary1.gameObject.transform.localScale = GameObject.Find("runePrimary1").gameObject.transform.localScale;
-        runePrimary2.gameObject.transform.localScale = GameObject.Find("runePrimary2").gameObject.transform.localScale;
-        runePrimary3.gameObject.transform.localScale = GameObject.Find("runePrimary3").gameObject.transform.localScale;
+        runePrimaryKey.gameObject.transform.localScale = GameObject.Find("runeKey").gameObject.transform.localScale * 100 / 52;
+        runePrimary1.gameObject.transform.localScale = GameObject.Find("runePrimary1").gameObject.transform.localScale * 100 / 52;
+        runePrimary2.gameObject.transform.localScale = GameObject.Find("runePrimary2").gameObject.transform.localScale * 100 / 52;
+        runePrimary3.gameObject.transform.localScale = GameObject.Find("runePrimary3").gameObject.transform.localScale * 100 / 52;
 
         string rk = "runes/" + findRuneName(treePrimaryStr, "K", Random.Range(1, 3));
         string r1 = "runes/" + findRuneName(treePrimaryStr, "1", Random.Range(1, 3));
@@ -631,8 +631,8 @@ public class rollAll : MonoBehaviour
         runeSecondary2.gameObject.tag = "icon";
         runeSecondary1.gameObject.transform.position = GameObject.Find("runeSecondary1").gameObject.transform.position;
         runeSecondary2.gameObject.transform.position = GameObject.Find("runeSecondary2").gameObject.transform.position;
-        runeSecondary1.gameObject.transform.position = GameObject.Find("runeSecondary1").gameObject.transform.lossyScale;
-        runeSecondary2.gameObject.transform.position = GameObject.Find("runeSecondary2").gameObject.transform.lossyScale;
+        runeSecondary1.gameObject.transform.localScale = GameObject.Find("runeSecondary1").gameObject.transform.localScale * 100 / 52;
+        runeSecondary2.gameObject.transform.localScale = GameObject.Find("runeSecondary2").gameObject.transform.localScale * 100 / 52;
 
         moveGameObjectToZMinus1(runeSecondary1);
         moveGameObjectToZMinus1(runeSecondary2);
