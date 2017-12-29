@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class rollAll : MonoBehaviour {
+public class rollAll : MonoBehaviour
+{
 
     List<string> summsNamesList = new List<string>();
 
@@ -23,6 +24,8 @@ public class rollAll : MonoBehaviour {
 
     List<Item> itemsList = new List<Item>();
 
+    List<Rune> runesList = new List<Rune>();
+
     // Use this for initialization
     void Start()
     {
@@ -36,7 +39,7 @@ public class rollAll : MonoBehaviour {
         summsNamesList.Add("Ignite");
         summsNamesList.Add("Smite");
         summsNamesList.Add("Teleport");
-        
+
         champsList.Add(new Champ("Aatrox"));
         champsList.Add(new Champ("Ahri", true));
         champsList.Add(new Champ("Akali"));
@@ -184,7 +187,7 @@ public class rollAll : MonoBehaviour {
         bootsList.Add("MercurysThreads");
         bootsList.Add("NinjaTabi");
         bootsList.Add("SorcerersShoes");
-        
+
         itemsList.Add(new Item("Abyssal_Mask_item"));
         itemsList.Add(new Item("Adaptive_Helm_item"));
         itemsList.Add(new Item("Archangel's_Staff_item"));
@@ -258,6 +261,75 @@ public class rollAll : MonoBehaviour {
         itemsList.Add(new Item("Zeke's_Convergence_item"));
         itemsList.Add(new Item("Zhonya's_Hourglass_item"));
         itemsList.Add(new Item("Zz'Rot_Portal_item"));
+
+
+
+        runesList.Add(new Rune("Press_the_Attack_rune", "P", "K", 1));
+        runesList.Add(new Rune("Lethal_Tempo_rune", "P", "K", 2));
+        runesList.Add(new Rune("Fleet_Footwork_rune", "P", "K", 3));
+        runesList.Add(new Rune("Overheal_rune", "P", "1", 1));
+        runesList.Add(new Rune("Triumph_rune", "P", "1", 2));
+        runesList.Add(new Rune("Presence_of_Mind_rune", "P", "1", 3));
+        runesList.Add(new Rune("Legend-_Alacrity_rune", "P", "2", 1));
+        runesList.Add(new Rune("Legend-_Tenacity_rune", "P", "2", 2));
+        runesList.Add(new Rune("Legend-_Bloodline_rune", "P", "2", 3));
+        runesList.Add(new Rune("Coup_de_Grace_rune", "P", "3", 1));
+        runesList.Add(new Rune("Cut_Down_rune", "P", "3", 2));
+        runesList.Add(new Rune("Last_Stand_rune", "P", "3", 3));
+
+        runesList.Add(new Rune("Electrocute_rune", "D", "K", 1));
+        runesList.Add(new Rune("Predator_rune", "D", "K", 2));
+        runesList.Add(new Rune("Dark_Harvest_rune", "D", "K", 3));
+        runesList.Add(new Rune("Cheap_Shot_rune", "D", "1", 1));
+        runesList.Add(new Rune("Taste_of_Blood_rune", "D", "1", 2));
+        runesList.Add(new Rune("Sudden_Impact_rune", "D", "1", 3));
+        runesList.Add(new Rune("Zombie_Ward_rune", "D", "2", 1));
+        runesList.Add(new Rune("Ghost_Poro_rune", "D", "2", 2));
+        runesList.Add(new Rune("Eyeball_Collection_rune", "D", "2", 3));
+        runesList.Add(new Rune("Ravenous_Hunter_rune", "D", "3", 1));
+        runesList.Add(new Rune("Ingenious_Hunter_rune", "D", "3", 2));
+        runesList.Add(new Rune("Relentless_Hunter_rune", "D", "3", 3));
+
+        runesList.Add(new Rune("Summon_Aery_rune", "S", "K", 1));
+        runesList.Add(new Rune("Arcane_Comet_rune", "S", "K", 2));
+        runesList.Add(new Rune("Phase_Rush_rune", "S", "K", 3));
+        runesList.Add(new Rune("Nullifying_Orb_rune", "S", "1", 1));
+        runesList.Add(new Rune("Manaflow_Band_rune", "S", "1", 2));
+        runesList.Add(new Rune("The_Ultimate_Hat_rune", "S", "1", 3));
+        runesList.Add(new Rune("Transcendence_rune", "S", "2", 1));
+        runesList.Add(new Rune("Celerity_rune", "S", "2", 2));
+        runesList.Add(new Rune("Absolute_Focus_rune", "S", "2", 3));
+        runesList.Add(new Rune("Scorch_rune", "S", "3", 1));
+        runesList.Add(new Rune("Waterwalking_rune", "S", "3", 2));
+        runesList.Add(new Rune("Gathering_Storm_rune", "S", "3", 3));
+
+        runesList.Add(new Rune("Grasp_of_the_Undying_rune", "R", "K", 1));
+        runesList.Add(new Rune("Aftershock_rune", "R", "K", 2));
+        runesList.Add(new Rune("Guardian_rune", "R", "K", 3));
+        runesList.Add(new Rune("Unflinching_rune", "R", "1", 1));
+        runesList.Add(new Rune("Demolish_rune", "R", "1", 2));
+        runesList.Add(new Rune("Font_of_Life_rune", "R", "1", 3));
+        runesList.Add(new Rune("Iron_Skin_rune", "R", "2", 1));
+        runesList.Add(new Rune("Mirror_Shell_rune", "R", "2", 2));
+        runesList.Add(new Rune("Conditioning_rune", "R", "2", 3));
+        runesList.Add(new Rune("Overgrowth_rune", "R", "3", 1));
+        runesList.Add(new Rune("Revitalize_rune", "R", "3", 2));
+        runesList.Add(new Rune("Second_Wind_rune", "R", "3", 3));
+
+        runesList.Add(new Rune("Unsealed_Spellbook_rune", "I", "K", 1));
+        runesList.Add(new Rune("Glacial_Augment_rune", "I", "K", 2));
+        runesList.Add(new Rune("Kleptomancy_rune", "I", "K", 3));
+        runesList.Add(new Rune("Hextech_Flashtraption_rune", "I", "1", 1));
+        runesList.Add(new Rune("Biscuit_Delivery_rune", "I", "1", 2));
+        runesList.Add(new Rune("Perfect_Timing_rune", "I", "1", 3));
+        runesList.Add(new Rune("Magical_Footwear_rune", "I", "2", 1));
+        runesList.Add(new Rune("Future's_Market_rune", "I", "2", 2));
+        runesList.Add(new Rune("Minion_Dematerializer_rune", "I", "2", 3));
+        runesList.Add(new Rune("Cosmic_Insight_rune", "I", "3", 1));
+        runesList.Add(new Rune("Approach_Velocity_rune", "I", "3", 2));
+        runesList.Add(new Rune("Celestial_Body_rune", "I", "3", 3));
+
+
 
 
     }
@@ -358,7 +430,7 @@ public class rollAll : MonoBehaviour {
         do
         {
             item1 = Random.Range(0, itemsList.Count);
-        } while (checkRestrictions(champ, item1)==false);
+        } while (checkRestrictions(champ, item1) == false);
         do
         {
             item2 = Random.Range(0, itemsList.Count);
@@ -375,14 +447,14 @@ public class rollAll : MonoBehaviour {
         {
             item5 = Random.Range(0, itemsList.Count);
         } while (item5 == item1 || item5 == item4 || item5 == item3 || item5 == item2 || item5 == item1 || checkRestrictions(champ, item5, item4, item3, item2, item1) == false);
-        
+
         moveGameObjectToZMinus1(itemIcon1);
         moveGameObjectToZMinus1(itemIcon2);
-        moveGameObjectToZMinus1(itemIcon3); 
+        moveGameObjectToZMinus1(itemIcon3);
         moveGameObjectToZMinus1(itemIcon4);
         moveGameObjectToZMinus1(itemIcon5);
 
-        
+
         itemIcon1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/" + itemsList[item1].name)[0];
         itemIcon2.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/" + itemsList[item2].name)[0];
         itemIcon3.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/" + itemsList[item3].name)[0];
@@ -393,7 +465,7 @@ public class rollAll : MonoBehaviour {
         {
             itemIcon1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/Special/HexCore")[0]; //Viktor
         }
-        if (champsList[champ].name=="Cassiopeia") //Cassiopeia
+        if (champsList[champ].name == "Cassiopeia") //Cassiopeia
         {
             int newItem;
             do
@@ -408,14 +480,162 @@ public class rollAll : MonoBehaviour {
         moveGameObjectToZMinus1(itemIcon3);
         moveGameObjectToZMinus1(itemIcon4);
         moveGameObjectToZMinus1(itemIcon5);
-        
+
+
+
+
+        rollRunes();
+    }
+
+    string findRuneName(string tree, string row, int option)
+    {
+        foreach(Rune r in runesList)
+        {
+            if (r.tree == tree && r.row == row && r.option == option)
+            {
+                return (r.name);
+            }
+        }
+        return null;
+    }
+     
+    void rollRunes()
+    {
+
+        int treePrimaryNum = Random.Range(1,5);
+        string treePrimaryStr = "";
+
+        switch (treePrimaryNum)
+        {
+            case 1:
+                treePrimaryStr = "P";
+                break;
+            case 2:
+                treePrimaryStr = "D";
+                break;
+            case 3:
+                treePrimaryStr = "S";
+                break;
+            case 4:
+                treePrimaryStr = "R";
+                break;
+            case 5:
+                treePrimaryStr = "I";
+                break;
+        }
+
+        int treeSecondaryNum;
+
+        do
+        {
+            treeSecondaryNum = Random.Range(1, 5);
+        } while (treePrimaryNum == treeSecondaryNum);
+
+        string treeSecondaryStr = "";
+
+        switch (treeSecondaryNum)
+        {
+            case 1:
+                treeSecondaryStr = "P";
+                break;
+            case 2:
+                treeSecondaryStr = "D";
+                break;
+            case 3:
+                treeSecondaryStr = "S";
+                break;
+            case 4:
+                treeSecondaryStr = "R";
+                break;
+            case 5:
+                treeSecondaryStr = "I";
+                break;
+        }
+
+
+
+        GameObject runePrimaryKey = new GameObject();
+        GameObject runePrimary1 = new GameObject();
+        GameObject runePrimary2 = new GameObject();
+        GameObject runePrimary3 = new GameObject();
+        runePrimaryKey.AddComponent<SpriteRenderer>();
+        runePrimary1.AddComponent<SpriteRenderer>();
+        runePrimary2.AddComponent<SpriteRenderer>();
+        runePrimary3.AddComponent<SpriteRenderer>();
+        runePrimaryKey.gameObject.tag = "icon";
+        runePrimary1.gameObject.tag = "icon";
+        runePrimary2.gameObject.tag = "icon";
+        runePrimary3.gameObject.tag = "icon";
+        runePrimaryKey.gameObject.transform.position = GameObject.Find("runeKey").gameObject.transform.position;
+        runePrimary1.gameObject.transform.position = GameObject.Find("runePrimary1").gameObject.transform.position;
+        runePrimary2.gameObject.transform.position = GameObject.Find("runePrimary2").gameObject.transform.position;
+        runePrimary3.gameObject.transform.position = GameObject.Find("runePrimary3").gameObject.transform.position;
+
+        string rk = "runes/" + findRuneName(treePrimaryStr, "K", Random.Range(1, 3));
+        string r1 = "runes/" + findRuneName(treePrimaryStr, "1", Random.Range(1, 3));
+        string r2 = "runes/" + findRuneName(treePrimaryStr, "2", Random.Range(1, 3));
+        string r3 = "runes/" + findRuneName(treePrimaryStr, "3", Random.Range(1, 3));
+
+        /*
+        Debug.Log("###########################");
+        Debug.Log(rk);
+        Debug.Log(r1);
+        Debug.Log(r2);
+        Debug.Log(r3);
+        */
+
+        runePrimaryKey.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>(rk)[0];
+        runePrimary1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>(r1)[0];
+        runePrimary2.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>(r2)[0];
+        runePrimary3.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>(r3)[0];
+
+        moveGameObjectToZMinus1(runePrimaryKey);
+        moveGameObjectToZMinus1(runePrimary1);
+        moveGameObjectToZMinus1(runePrimary2);
+        moveGameObjectToZMinus1(runePrimary3);
+        /*
+        runePrimaryKey.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("runes/" + findRuneName(treePrimaryStr, "K",Random.Range(1,3)))[0];
+        runePrimary1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("runes/" + findRuneName(treePrimaryStr, "1", Random.Range(1, 3)))[0];
+        runePrimary2.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("runes/" + findRuneName(treePrimaryStr, "2", Random.Range(1, 3)))[0];
+        runePrimary3.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("runes/" + findRuneName(treePrimaryStr, "3", Random.Range(1, 3)))[0];
+        */
+        GameObject runeSecondary1 = new GameObject();
+        GameObject runeSecondary2 = new GameObject();
+        runeSecondary1.AddComponent<SpriteRenderer>();
+        runeSecondary2.AddComponent<SpriteRenderer>();
+        runeSecondary1.gameObject.tag = "icon";
+        runeSecondary2.gameObject.tag = "icon";
+        runeSecondary1.gameObject.transform.position = GameObject.Find("runeSecondary1").gameObject.transform.position;
+        runeSecondary2.gameObject.transform.position = GameObject.Find("runeSecondary2").gameObject.transform.position;
+
+        moveGameObjectToZMinus1(runeSecondary1);
+        moveGameObjectToZMinus1(runeSecondary2);
+
+        switch (Random.Range(1, 3))
+        {
+            case 1:
+                runeSecondary1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("runes/" + findRuneName(treeSecondaryStr, "1", Random.Range(1, 3)))[0];
+                runeSecondary2.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("runes/" + findRuneName(treeSecondaryStr, "2", Random.Range(1, 3)))[0];
+                break;
+            case 2:
+                runeSecondary1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("runes/" + findRuneName(treeSecondaryStr, "2", Random.Range(1, 3)))[0];
+                runeSecondary2.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("runes/" + findRuneName(treeSecondaryStr, "3", Random.Range(1, 3)))[0];
+                break;
+            case 3:
+                runeSecondary1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("runes/" + findRuneName(treeSecondaryStr, "1", Random.Range(1, 3)))[0];
+                runeSecondary2.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("runes/" + findRuneName(treeSecondaryStr, "3", Random.Range(1, 3)))[0];
+                break;
+        }
+
+
+
 
     }
 
     bool checkRestrictions(int champ, int itemNew, int item2 = -1, int item3 = -1, int item4 = -1, int item5 = -1, int item6 = -1)
     {
 
-        if(itemsList[itemNew].restriction == "ranged" && champsList[champ].ranged == false)
+        if (itemsList[itemNew].restriction == "ranged" && champsList[champ].ranged == false)
         {
             return false;
         }
@@ -423,7 +643,7 @@ public class rollAll : MonoBehaviour {
         {
             return false;
         }
-        
+
 
         if (itemsList[itemNew].restriction == "gold")
         {
@@ -536,5 +756,21 @@ public class Item
     {
         this.name = name;
         this.restriction = restriction;
+    }
+}
+
+public class Rune
+{
+    public string name;
+    public string tree;
+    public string row;
+    public int option;
+
+    public Rune(string name, string tree, string row, int option)
+    {
+        this.name = name;
+        this.tree = tree;
+        this.row = row;
+        this.option = option;
     }
 }
