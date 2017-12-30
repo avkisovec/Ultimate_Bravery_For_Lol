@@ -28,8 +28,11 @@ public class rollAll : MonoBehaviour
 
     List<string> trinketsList = new List<string>();
 
+    List<string> jungleItemsList = new List<string>();
+
     Vector3 mouseHoldBegin;
 
+    public bool jungling = false;
 
     // Use this for initialization
     void Start()
@@ -42,7 +45,6 @@ public class rollAll : MonoBehaviour
         summsNamesList.Add("Ghost");
         summsNamesList.Add("Heal");
         summsNamesList.Add("Ignite");
-        summsNamesList.Add("Smite");
         summsNamesList.Add("Teleport");
 
         champsList.Add(new Champ("Aatrox"));
@@ -333,12 +335,25 @@ public class rollAll : MonoBehaviour
         runesList.Add(new Rune("Cosmic_Insight_rune", "I", "3", 1));
         runesList.Add(new Rune("Approach_Velocity_rune", "I", "3", 2));
         runesList.Add(new Rune("Celestial_Body_rune", "I", "3", 3));
-
+        
 
         trinketsList.Add("farsightAlteration");
         trinketsList.Add("oracleAlteration");
         trinketsList.Add("sweepingLens");
         trinketsList.Add("trinket");
+
+        jungleItemsList.Add("blueBlood");
+        jungleItemsList.Add("blueCinder");
+        jungleItemsList.Add("blueEchoes");
+        jungleItemsList.Add("blueWar");
+        jungleItemsList.Add("greenBlood");
+        jungleItemsList.Add("greenCinder");
+        jungleItemsList.Add("greenEchoes");
+        jungleItemsList.Add("greenWar");
+        jungleItemsList.Add("redBlood");
+        jungleItemsList.Add("redCinder");
+        jungleItemsList.Add("redEchoes");
+        jungleItemsList.Add("redWar");
 
         roll();
     }
@@ -354,7 +369,19 @@ public class rollAll : MonoBehaviour
         }
 
     }
-
+    /*
+    public void toggleJungling()
+    {
+        if (jungling)
+        {
+            jungling = false;
+        }
+        else
+        {
+            jungling = true;
+        }
+    }
+    */
     public void roll()
     {
         foreach (GameObject item in GameObject.FindGameObjectsWithTag("icon"))
@@ -383,6 +410,11 @@ public class rollAll : MonoBehaviour
 
         summIcon1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("summSpells/" + summsNamesList[summ1])[0];
         summIcon2.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("summSpells/" + summsNamesList[summ2])[0];
+
+        if (GameObject.Find("btnJungle").GetComponent<btnToggleGraphics>().state) //jungle will have smite
+        {
+            summIcon1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("summSpells/Smite")[0]; 
+        }
 
         moveGameObjectToZMinus1(summIcon1);
         summIcon2.gameObject.transform.position = new Vector3(summIcon2.gameObject.transform.position.x, summIcon2.gameObject.transform.position.y, -1.1f);
@@ -482,7 +514,7 @@ public class rollAll : MonoBehaviour
 
         if (champsList[champ].isViktor)
         {
-            itemIcon1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/Special/HexCore")[0]; //Viktor
+            itemIcon2.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/Special/HexCore")[0]; //Viktor
         }
         if (champsList[champ].name == "Cassiopeia") //Cassiopeia
         {
@@ -492,6 +524,10 @@ public class rollAll : MonoBehaviour
                 newItem = Random.Range(0, itemsList.Count);
             } while (newItem == item5 || newItem == item4 || newItem == item3 || newItem == item2 || newItem == item1 || checkRestrictions(champ, newItem, item5, item4, item3, item2, item1) == false);
             itemBootsIcon.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/" + itemsList[newItem].name)[0];
+        }
+        if (GameObject.Find("btnJungle").GetComponent<btnToggleGraphics>().state) //jungler will have jungling item
+        {
+            itemIcon1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/Special/" + jungleItemsList[Random.Range(0,jungleItemsList.Count)])[0];
         }
 
         moveGameObjectToZMinus1(itemIcon1); //moving to z=-1 again because of the previously stated bug
