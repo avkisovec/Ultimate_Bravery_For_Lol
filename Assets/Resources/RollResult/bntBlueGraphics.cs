@@ -25,7 +25,8 @@ public class bntBlueGraphics : MonoBehaviour {
         if (mouseCoordinates.x > transform.position.x - transform.lossyScale.x / 2 &&
             mouseCoordinates.x < transform.position.x + transform.lossyScale.x / 2 &&
             mouseCoordinates.y > transform.position.y - transform.lossyScale.y / 2 &&
-            mouseCoordinates.y < transform.position.y + transform.lossyScale.y / 2
+            mouseCoordinates.y < transform.position.y + transform.lossyScale.y / 2 &&
+            Input.GetMouseButton(0)
             )
         {
             btnRollImage.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("RollResult/btnBlueHover")[0];
