@@ -2306,7 +2306,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1420312140}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -20.993, y: 55.128, z: -0.1796875}
+  m_LocalPosition: {x: -28.3, y: 66.2, z: -0.1796875}
   m_LocalScale: {x: 8.385742, y: 9.056441, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2750,7 +2750,7 @@ GameObject:
   - component: {fileID: 1573819595}
   - component: {fileID: 1573819594}
   m_Layer: 0
-  m_Name: Summoners-Rift-Summoner-Platform
+  m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2807,8 +2807,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1573819593}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.8, y: 14.2, z: 0}
-  m_LocalScale: {x: 1.1562257, y: 1.2721683, z: 1}
+  m_LocalPosition: {x: 1.4, y: 45.4, z: 6}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 20
