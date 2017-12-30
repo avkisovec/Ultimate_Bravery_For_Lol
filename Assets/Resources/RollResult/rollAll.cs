@@ -26,6 +26,7 @@ public class rollAll : MonoBehaviour
 
     List<Rune> runesList = new List<Rune>();
 
+    List<string> trinketsList = new List<string>();
 
     Vector3 mouseHoldBegin;
 
@@ -333,8 +334,13 @@ public class rollAll : MonoBehaviour
         runesList.Add(new Rune("Approach_Velocity_rune", "I", "3", 2));
         runesList.Add(new Rune("Celestial_Body_rune", "I", "3", 3));
 
-        roll();
-        
+
+        trinketsList.Add("farsightAlteration");
+        trinketsList.Add("oracleAlteration");
+        trinketsList.Add("sweepingLens");
+        trinketsList.Add("trinket");
+
+
     }
 
     // Update is called once per frame
@@ -390,7 +396,7 @@ public class rollAll : MonoBehaviour
         summIcon2.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("summSpells/" + summsNamesList[summ2])[0];
 
         moveGameObjectToZMinus1(summIcon1);
-        summIcon2.gameObject.transform.position=new Vector3(summIcon2.gameObject.transform.position.x, summIcon2.gameObject.transform.position.y, -1.1f);
+        moveGameObjectToZMinus1(summIcon2);
 
         champ = Random.Range(0, champsList.Count);
         GameObject champIcon = new GameObject();
@@ -505,6 +511,15 @@ public class rollAll : MonoBehaviour
         moveGameObjectToZMinus1(itemIcon4);
         moveGameObjectToZMinus1(itemIcon5);
 
+
+        
+        GameObject itemTrinketIcon = new GameObject();
+        itemTrinketIcon.AddComponent<SpriteRenderer>();
+        itemTrinketIcon.gameObject.tag = "icon";
+        itemTrinketIcon.gameObject.transform.position = GameObject.Find("itemTrinketBg").gameObject.transform.position;
+        itemTrinketIcon.gameObject.transform.localScale = GameObject.Find("itemTrinketBg").gameObject.transform.localScale * 100 / 64;
+        itemTrinketIcon.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("trinkets/" + trinketsList[Random.Range(0,trinketsList.Count)])[0];
+        moveGameObjectToZMinus1(itemTrinketIcon);
 
 
 
