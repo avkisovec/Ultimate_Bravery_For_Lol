@@ -352,6 +352,10 @@ public class rollAll : MonoBehaviour
             {
                 roll();
             }
+            if (checkBtnClick("btnMenuRoll"))
+            {
+                roll();
+            }
         }
 
     }

@@ -11,13 +11,15 @@ public class camControl2 : MonoBehaviour {
     Vector3 positionChampScreen = new Vector3(-3, -1, -10);
     Vector3 positionRunesScreen = new Vector3(7, -1, -10);
 
-    float camConstraintFixedX = -3;
+    float camConstraintFixedX = 0;
     float camConstraintMinX = -7.1f;
     float camConstraintMaxX = 7.1f;
-    float camConstraintMinY = -20f;
-    float camConstraintMaxY = 20f;
+    float camConstraintMinY = 5.5f;
+    float camConstraintMaxY = 54.5f;
 
     Vector3 lastMousePosition;
+    
+    Transform background;
 
     Vector3 mouseHoldBegin;
 
@@ -30,6 +32,8 @@ public class camControl2 : MonoBehaviour {
 
         lastMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
         mouseHoldBegin = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+        
+        background = GameObject.Find("background").GetComponent<Transform>();
     }
 
     // Update is called once per frame
@@ -42,7 +46,7 @@ public class camControl2 : MonoBehaviour {
         btnSwapTransform.position = new Vector3(btnSwapTransform.position.x, btnSwapTransform.position.y, -5);
         */
 
-
+        
         if (Input.GetMouseButtonDown(0))
         {
             camRigidBody.velocity -= camRigidBody.velocity;
@@ -65,21 +69,25 @@ public class camControl2 : MonoBehaviour {
         {
             camRigidBody.velocity += new Vector2((lastMousePosition - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0))).x, (lastMousePosition - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0))).y) * 10;
 
+            /*
             if (checkBtnClick("btnSwap"))
             {
                 camTransform.position = positionChampScreen;
             }
+            */
+            checkAnchorBtns();
         }
 
-        
 
+
+        updateBackground();
         slowDownCamera();
-        checkAnchorBtns();
         checkConstraints();
 
         lastMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 
 
+        //checkAnchorBtns();
 
 
     }
@@ -115,7 +123,42 @@ public class camControl2 : MonoBehaviour {
             camTransform.position = new Vector3(anchorX,anchorY,-10);
         }
         */
+        
 
+
+        if (checkBtnClick("btnMenuRoll"))
+        {
+            camTransform.position = new Vector3(camConstraintFixedX, 42, -10);
+        }
+        if (checkBtnClick("btnAbout"))
+        {
+            camTransform.position = new Vector3(camConstraintFixedX, 6, -10);
+        }
+        if (checkBtnClick("btnRoll"))
+        {
+            camTransform.position = new Vector3(camConstraintFixedX, 42, -10);
+        }
+        if (checkBtnClick("btnDontHave"))
+        {
+            camTransform.position = new Vector3(camConstraintFixedX, 18, -10);
+        }
+        if (checkBtnClick("btnRunes"))
+        {
+            camTransform.position = new Vector3(camConstraintFixedX, 30, -10);
+        }
+        if (checkBtnClick("btnBuild"))
+        {
+            camTransform.position = new Vector3(camConstraintFixedX, 42, -10);
+        }
+        if (checkBtnClick("btnBuild2"))
+        {
+            camTransform.position = new Vector3(camConstraintFixedX, 42, -10);
+        }
+        if (checkBtnClick("btnToMenu"))
+        {
+            camTransform.position = new Vector3(camConstraintFixedX, 54, -10);
+        }
+        
 
 
 
@@ -123,7 +166,7 @@ public class camControl2 : MonoBehaviour {
 
     bool checkBtnClick(string button)
     {
-
+        
         GameObject btn = GameObject.Find(button);
         Vector3 clickCoordinates = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 
@@ -164,5 +207,17 @@ public class camControl2 : MonoBehaviour {
             camRigidBody.velocity -= camRigidBody.velocity / 70;
         }
         
+    }
+
+    void updateBackground()
+    {
+        float camMinY = 6;
+        float camMaxY = 54;
+        float bgMinY = 12;
+        float bgMaxY = 45;
+
+        background.position = new Vector3(background.position.x,
+            camTransform.position.y / ((camMaxY - camMinY) + camMinY) * (bgMaxY - bgMinY) + bgMinY
+            ,6);
     }
 }
