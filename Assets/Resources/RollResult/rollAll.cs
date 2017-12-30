@@ -30,6 +30,7 @@ public class rollAll : MonoBehaviour
 
     Vector3 mouseHoldBegin;
 
+    public bool jungling = false;
 
     // Use this for initialization
     void Start()
@@ -354,6 +355,18 @@ public class rollAll : MonoBehaviour
         }
 
     }
+    
+    public void toggleJungling()
+    {
+        if (jungling)
+        {
+            jungling = false;
+        }
+        else
+        {
+            jungling = true;
+        }
+    }
 
     public void roll()
     {
@@ -482,7 +495,7 @@ public class rollAll : MonoBehaviour
 
         if (champsList[champ].isViktor)
         {
-            itemIcon1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/Special/HexCore")[0]; //Viktor
+            itemIcon2.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/Special/HexCore")[0]; //Viktor
         }
         if (champsList[champ].name == "Cassiopeia") //Cassiopeia
         {

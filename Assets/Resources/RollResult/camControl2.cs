@@ -158,7 +158,21 @@ public class camControl2 : MonoBehaviour {
         {
             camTransform.position = new Vector3(camConstraintFixedX, 54, -10);
         }
-        
+        if (checkBtnClick("btnJungle"))
+        {
+            switch (GameObject.Find("btnJungle").GetComponent<btnToggleGraphics>().state)
+            {
+                case true:
+                    GameObject.Find("btnJungle").GetComponent<btnToggleGraphics>().state = false;
+                    GameObject.Find("btnJungle").GetComponent<btnToggleGraphics>().updateGraphics();
+                    break;
+                case false:
+                    GameObject.Find("btnJungle").GetComponent<btnToggleGraphics>().state = true;
+                    GameObject.Find("btnJungle").GetComponent<btnToggleGraphics>().updateGraphics();
+                    break;
+            }
+        }
+
 
 
 
