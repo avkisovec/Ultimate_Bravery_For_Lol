@@ -49,9 +49,7 @@ public class camControl2 : MonoBehaviour {
         
         if (Input.GetMouseButtonDown(0))
         {
-            camRigidBody.velocity -= camRigidBody.velocity;
-
-            Transform btnSwapTransform = GameObject.Find("btnSwap").GetComponent<Transform>();
+            //camRigidBody.velocity -= camRigidBody.velocity;
 
             Vector3 clickCoordinates = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 
@@ -61,13 +59,13 @@ public class camControl2 : MonoBehaviour {
         }
         else if (Input.GetMouseButton(0))
         {
-            camTransform.position += lastMousePosition - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
+            //camTransform.position += lastMousePosition - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
 
         }
-
+        
         if (Input.GetMouseButtonUp(0))
         {
-            camRigidBody.velocity += new Vector2((lastMousePosition - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0))).x, (lastMousePosition - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0))).y) * 10;
+            //camRigidBody.velocity += new Vector2((lastMousePosition - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0))).x, (lastMousePosition - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0))).y) * 10;
 
             /*
             if (checkBtnClick("btnSwap"))
@@ -129,6 +127,7 @@ public class camControl2 : MonoBehaviour {
         if (checkBtnClick("btnMenuRoll"))
         {
             camTransform.position = new Vector3(camConstraintFixedX, 42, -10);
+            GetComponent<rollAll>().roll();
         }
         if (checkBtnClick("btnAbout"))
         {
@@ -137,6 +136,7 @@ public class camControl2 : MonoBehaviour {
         if (checkBtnClick("btnRoll"))
         {
             camTransform.position = new Vector3(camConstraintFixedX, 42, -10);
+            GetComponent<rollAll>().roll();
         }
         if (checkBtnClick("btnDontHave"))
         {

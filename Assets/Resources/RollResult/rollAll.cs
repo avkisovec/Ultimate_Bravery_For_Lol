@@ -340,7 +340,7 @@ public class rollAll : MonoBehaviour
         trinketsList.Add("sweepingLens");
         trinketsList.Add("trinket");
 
-
+        roll();
     }
 
     // Update is called once per frame
@@ -352,21 +352,10 @@ public class rollAll : MonoBehaviour
         {
             mouseHoldBegin = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 0));
         }
-        if (Input.GetMouseButtonUp(0))
-        {
-            if (checkBtnClick("btnRoll"))
-            {
-                roll();
-            }
-            if (checkBtnClick("btnMenuRoll"))
-            {
-                roll();
-            }
-        }
 
     }
 
-    void roll()
+    public void roll()
     {
         foreach (GameObject item in GameObject.FindGameObjectsWithTag("icon"))
         {
@@ -396,7 +385,7 @@ public class rollAll : MonoBehaviour
         summIcon2.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("summSpells/" + summsNamesList[summ2])[0];
 
         moveGameObjectToZMinus1(summIcon1);
-        moveGameObjectToZMinus1(summIcon2);
+        summIcon2.gameObject.transform.position = new Vector3(summIcon2.gameObject.transform.position.x, summIcon2.gameObject.transform.position.y, -1.1f);
 
         champ = Random.Range(0, champsList.Count);
         GameObject champIcon = new GameObject();
