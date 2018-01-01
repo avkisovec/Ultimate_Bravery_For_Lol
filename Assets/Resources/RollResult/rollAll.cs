@@ -493,7 +493,7 @@ public class rollAll : MonoBehaviour
         do
         {
             item4 = Random.Range(0, itemsList.Count);
-        } while (item4 == item1 || item4 == item2 || item4 == item1 || checkRestrictions(champ, item4, item3, item2, item1) == false);
+        } while (item4 == item1 || item4 == item2 || item4 == item3 || checkRestrictions(champ, item4, item3, item2, item1) == false);
         do
         {
             item5 = Random.Range(0, itemsList.Count);
