@@ -18,6 +18,17 @@ public class rollAll : MonoBehaviour
     int item4;
     int item5;
 
+    int altChamp1;
+    int altChamp2;
+    int altChamp3;
+    int altChamp4;
+    int altChamp5;
+    int altChamp6;
+    int altChamp7;
+    int altChamp8;
+    int altChamp9;
+
+
     List<Champ> champsList = new List<Champ>();
 
     List<string> bootsList = new List<string>();
@@ -476,7 +487,6 @@ public class rollAll : MonoBehaviour
         itemIcon3.gameObject.transform.localScale = GameObject.Find("item3").gameObject.transform.lossyScale * 100 / 64;
         itemIcon4.gameObject.transform.localScale = GameObject.Find("item4").gameObject.transform.lossyScale * 100 / 64;
         itemIcon5.gameObject.transform.localScale = GameObject.Find("item5").gameObject.transform.lossyScale * 100 / 64;
-        
 
         do
         {
@@ -504,6 +514,8 @@ public class rollAll : MonoBehaviour
         moveGameObjectToZMinus1(itemIcon3);
         moveGameObjectToZMinus1(itemIcon4);
         moveGameObjectToZMinus1(itemIcon5);
+
+        
 
 
         itemIcon1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("finishItems/" + itemsList[item1].name)[0];
@@ -546,9 +558,10 @@ public class rollAll : MonoBehaviour
         itemTrinketIcon.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("trinkets/" + trinketsList[Random.Range(0,trinketsList.Count)])[0];
         moveGameObjectToZMinus1(itemTrinketIcon);
 
-
+        
 
         rollRunes();
+        rollAltChamps();
     }
 
     string findRuneName(string tree, string row, int option)
@@ -700,6 +713,158 @@ public class rollAll : MonoBehaviour
 
 
 
+    }
+
+    void rollAltChamps()
+    {
+        GameObject champIcon1 = new GameObject();
+        GameObject champIcon2 = new GameObject();
+        GameObject champIcon3 = new GameObject();
+        GameObject champIcon4 = new GameObject();
+        GameObject champIcon5 = new GameObject();
+        GameObject champIcon6 = new GameObject();
+        GameObject champIcon7 = new GameObject();
+        GameObject champIcon8 = new GameObject();
+        GameObject champIcon9 = new GameObject();
+        champIcon1.AddComponent<SpriteRenderer>();
+        champIcon2.AddComponent<SpriteRenderer>();
+        champIcon3.AddComponent<SpriteRenderer>();
+        champIcon4.AddComponent<SpriteRenderer>();
+        champIcon5.AddComponent<SpriteRenderer>();
+        champIcon6.AddComponent<SpriteRenderer>();
+        champIcon7.AddComponent<SpriteRenderer>();
+        champIcon8.AddComponent<SpriteRenderer>();
+        champIcon9.AddComponent<SpriteRenderer>();
+        champIcon1.gameObject.tag = "icon";
+        champIcon2.gameObject.tag = "icon";
+        champIcon3.gameObject.tag = "icon";
+        champIcon4.gameObject.tag = "icon";
+        champIcon5.gameObject.tag = "icon";
+        champIcon6.gameObject.tag = "icon";
+        champIcon7.gameObject.tag = "icon";
+        champIcon8.gameObject.tag = "icon";
+        champIcon9.gameObject.tag = "icon";
+        champIcon1.gameObject.transform.position = GameObject.Find("altChamp1Bg").gameObject.transform.position;
+        champIcon2.gameObject.transform.position = GameObject.Find("altChamp2Bg").gameObject.transform.position;
+        champIcon3.gameObject.transform.position = GameObject.Find("altChamp3Bg").gameObject.transform.position;
+        champIcon4.gameObject.transform.position = GameObject.Find("altChamp4Bg").gameObject.transform.position;
+        champIcon5.gameObject.transform.position = GameObject.Find("altChamp5Bg").gameObject.transform.position;
+        champIcon6.gameObject.transform.position = GameObject.Find("altChamp6Bg").gameObject.transform.position;
+        champIcon7.gameObject.transform.position = GameObject.Find("altChamp7Bg").gameObject.transform.position;
+        champIcon8.gameObject.transform.position = GameObject.Find("altChamp8Bg").gameObject.transform.position;
+        champIcon9.gameObject.transform.position = GameObject.Find("altChamp9Bg").gameObject.transform.position;
+        champIcon1.gameObject.transform.localScale = GameObject.Find("altChamp1Bg").gameObject.transform.lossyScale * 100 / 120;
+        champIcon2.gameObject.transform.localScale = GameObject.Find("altChamp2Bg").gameObject.transform.lossyScale * 100 / 120;
+        champIcon3.gameObject.transform.localScale = GameObject.Find("altChamp3Bg").gameObject.transform.lossyScale * 100 / 120;
+        champIcon4.gameObject.transform.localScale = GameObject.Find("altChamp4Bg").gameObject.transform.lossyScale * 100 / 120;
+        champIcon5.gameObject.transform.localScale = GameObject.Find("altChamp5Bg").gameObject.transform.lossyScale * 100 / 120;
+        champIcon6.gameObject.transform.localScale = GameObject.Find("altChamp6Bg").gameObject.transform.lossyScale * 100 / 120;
+        champIcon7.gameObject.transform.localScale = GameObject.Find("altChamp7Bg").gameObject.transform.lossyScale * 100 / 120;
+        champIcon8.gameObject.transform.localScale = GameObject.Find("altChamp8Bg").gameObject.transform.lossyScale * 100 / 120;
+        champIcon9.gameObject.transform.localScale = GameObject.Find("altChamp9Bg").gameObject.transform.lossyScale * 100 / 120;
+        
+        do
+        {
+            altChamp1 = Random.Range(0, champsList.Count);
+        } while (altChamp1 == champ);
+        do
+        {
+            altChamp2 = Random.Range(0, champsList.Count);
+        } while (altChamp2 == champ || altChamp2 == altChamp1);
+        do
+        {
+            altChamp3 = Random.Range(0, champsList.Count);
+        } while (altChamp3 == champ || altChamp3 == altChamp2 || altChamp3 == altChamp1);
+        do
+        {
+            altChamp4 = Random.Range(0, champsList.Count);
+        } while (altChamp4 == champ || altChamp4 == altChamp3 || altChamp4 == altChamp2 || altChamp4 == altChamp1);
+        do
+        {
+            altChamp5 = Random.Range(0, champsList.Count);
+        } while (altChamp5 == champ || altChamp5 == altChamp4 || altChamp5 == altChamp3 || altChamp5 == altChamp2 || altChamp5 == altChamp1);
+        do
+        {
+            altChamp6 = Random.Range(0, champsList.Count);
+        } while (altChamp6 == champ || altChamp6 == altChamp5 || altChamp6 == altChamp4 || altChamp6 == altChamp3 || altChamp6 == altChamp2 || altChamp6 == altChamp1);
+        do
+        {
+            altChamp7 = Random.Range(0, champsList.Count);
+        } while (altChamp7 == champ || altChamp7 == altChamp6 || altChamp7 == altChamp5 || altChamp7 == altChamp4 || altChamp7 == altChamp3 || altChamp7 == altChamp2 || altChamp7 == altChamp1);
+        do
+        {
+            altChamp8 = Random.Range(0, champsList.Count);
+        } while (altChamp8 == champ || altChamp8 == altChamp7 || altChamp8 == altChamp6 || altChamp8 == altChamp5 || altChamp8 == altChamp4 || altChamp8 == altChamp3 || altChamp8 == altChamp2 || altChamp8 == altChamp1);
+        do
+        {
+            altChamp9 = Random.Range(0, champsList.Count);
+        } while (altChamp9 == champ || altChamp9 == altChamp8 || altChamp9 == altChamp7 || altChamp9 == altChamp6 || altChamp9 == altChamp5 || altChamp9 == altChamp4 || altChamp9 == altChamp3 || altChamp9 == altChamp2 || altChamp9 == altChamp1);
+
+
+        
+        moveGameObjectToZMinus1(champIcon1);
+        moveGameObjectToZMinus1(champIcon2);
+        moveGameObjectToZMinus1(champIcon3);
+        moveGameObjectToZMinus1(champIcon4);
+        moveGameObjectToZMinus1(champIcon5);
+        moveGameObjectToZMinus1(champIcon6);
+        moveGameObjectToZMinus1(champIcon7);
+        moveGameObjectToZMinus1(champIcon8);
+        moveGameObjectToZMinus1(champIcon9);
+
+        champIcon1.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Champions/" + champsList[altChamp1].name)[0];
+        champIcon2.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Champions/" + champsList[altChamp2].name)[0];
+        champIcon3.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Champions/" + champsList[altChamp3].name)[0];
+        champIcon4.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Champions/" + champsList[altChamp4].name)[0];
+        champIcon5.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Champions/" + champsList[altChamp5].name)[0];
+        champIcon6.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Champions/" + champsList[altChamp6].name)[0];
+        champIcon7.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Champions/" + champsList[altChamp7].name)[0];
+        champIcon8.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Champions/" + champsList[altChamp8].name)[0];
+        champIcon9.GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>("Champions/" + champsList[altChamp9].name)[0];
+
+        switch (Random.Range(1, 13))
+        {
+            case 1:
+                GameObject.Find("altChampText").GetComponent<TextMesh>().text = "If you still can't play anyone,\npick 1st from free rotation.";
+                break;
+            case 2:
+                GameObject.Find("altChampText").GetComponent<TextMesh>().text = "If you still can't play anyone,\npick 2nd from free rotation.";
+                break;
+            case 3:
+                GameObject.Find("altChampText").GetComponent<TextMesh>().text = "If you still can't play anyone,\npick 3rd from free rotation.";
+                break;
+            case 4:
+                GameObject.Find("altChampText").GetComponent<TextMesh>().text = "If you still can't play anyone,\npick 4th from free rotation.";
+                break;
+            case 5:
+                GameObject.Find("altChampText").GetComponent<TextMesh>().text = "If you still can't play anyone,\npick 5th from free rotation.";
+                break;
+            case 6:
+                GameObject.Find("altChampText").GetComponent<TextMesh>().text = "If you still can't play anyone,\npick 6th from free rotation.";
+                break;
+            case 7:
+                GameObject.Find("altChampText").GetComponent<TextMesh>().text = "If you still can't play anyone,\npick 7th from free rotation.";
+                break;
+            case 8:
+                GameObject.Find("altChampText").GetComponent<TextMesh>().text = "If you still can't play anyone,\npick 8th from free rotation.";
+                break;
+            case 9:
+                GameObject.Find("altChampText").GetComponent<TextMesh>().text = "If you still can't play anyone,\npick 9th from free rotation.";
+                break;
+            case 10:
+                GameObject.Find("altChampText").GetComponent<TextMesh>().text = "If you still can't play anyone,\npick 10th from free rotation.";
+                break;
+            case 11:
+                GameObject.Find("altChampText").GetComponent<TextMesh>().text = "If you still can't play anyone,\npick 11th from free rotation.";
+                break;
+            case 12:
+                GameObject.Find("altChampText").GetComponent<TextMesh>().text = "If you still can't play anyone,\npick 12th from free rotation.";
+                break;
+            case 13:
+                GameObject.Find("altChampText").GetComponent<TextMesh>().text = "If you still can't play anyone,\npick 13th from free rotation.";
+                break;
+
+        }
     }
 
     bool checkRestrictions(int champ, int itemNew, int item2 = -1, int item3 = -1, int item4 = -1, int item5 = -1, int item6 = -1)

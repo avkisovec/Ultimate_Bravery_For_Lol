@@ -154,7 +154,7 @@ public class camControl2 : MonoBehaviour {
         {
             camTransform.position = new Vector3(camConstraintFixedX, 42, -10);
         }
-        if (checkBtnClick("btnToMenu"))
+        if (checkBtnClick("btnToMenu")|| checkBtnClick("btnToMenu1"))
         {
             camTransform.position = new Vector3(camConstraintFixedX, 54, -10);
         }
